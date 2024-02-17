@@ -25,10 +25,10 @@
     await updateDoc(doc(db, "user", auth.currentUser?.uid ? auth.currentUser?.uid : ""), {
       emoji: emoji ? emoji : "👤",
       profileInfo: {
-        instargram: instargram,
-        X: X,
-        call: call,
-        etc: introduce,
+        instargram: instargram ? instargram : "",
+        X: X ? X : "",
+        call: call ? call : "",
+        etc: introduce ? introduce : "",
       }
     });
     window.location.href = "/";
