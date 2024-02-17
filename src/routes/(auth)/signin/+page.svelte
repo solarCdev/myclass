@@ -4,6 +4,7 @@
 	import { auth } from "$lib/fbase.client";
 	import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect, type AuthProvider } from "firebase/auth";
 	import { createEventDispatcher, onMount } from "svelte";
+  import google from "$lib/assets/google.svg";
 
 	// import { auth } from '$lib/fbase.client';
 	// import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect } from "firebase/auth";
@@ -85,7 +86,7 @@
   <div>
     <span class="mid grp">소셜 로그인 & 회원가입</span>
     <div>
-      <button class="sns-login" id="google" on:click={onSocialLogin}>구글 계정으로 로그인</button>
+      <button class="sns-login" id="google" on:click={onSocialLogin}> <img src={google} alt=""> 구글 계정으로 로그인</button>
     </div>
   </div>
 </div>
@@ -127,5 +128,13 @@
     border: 1px solid var(--stroke);
     color: black;
     background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+  }
+  
+  .sns-login > img {
+    width: 24px;
   }
 </style>
