@@ -43,6 +43,20 @@
     }
     
     if (step === 4){
+      if (!(info.ban &&
+        info.email &&
+        info.gender &&
+        info.grade &&
+        info.name &&
+        info.password &&
+        info.school)
+      ) {
+        err = true;
+        errLog = "회원가입란을 모두 채워주세요."
+        setTimeout(() => {
+          err = false;
+        }, 5000);
+      }
       const signUpResult = await createUserWithEmailAndPassword(auth, info.email, info.password).catch((error) =>{
         err = true;
         errLog = "회원가입 중 오류가 발생했습니다."
