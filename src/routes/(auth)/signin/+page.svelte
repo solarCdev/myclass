@@ -90,10 +90,10 @@
   </form>
   <span class="signup-link mid">아직 계정이 없으시다면? <a href="/signup">회원가입</a></span>
   <div>
-    <span class="mid grp">소셜 로그인 & 회원가입</span>
+    <!-- <span class="mid grp">소셜 로그인 & 회원가입</span>
     <div>
       <button class="sns-login" id="google" on:click={onSocialLogin}> <img src={google} alt=""> 구글 계정으로 로그인</button>
-    </div>
+    </div> -->
   </div>
 </div>
 
