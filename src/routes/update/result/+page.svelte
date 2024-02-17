@@ -38,7 +38,7 @@
       user?.grade ? String(user.grade) : "1",
       user?.ban ? String(user.ban) : "1"
     )
-    await updateDoc(userClass, {[user?.name ? user.name : ""] : undefined});
+    await updateDoc(userClass, {[user?.name ? user.name : ""] : null});
 
     const newUserClass = doc(db, "school",
       school,
