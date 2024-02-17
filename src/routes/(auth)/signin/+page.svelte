@@ -12,6 +12,7 @@
   type SocialLoginButtonEvent = MouseEvent
   let email = "";
   let password = "";
+  let errVal = "";
 
   const dispatch = createEventDispatcher()
 
@@ -22,6 +23,7 @@
       window.location.href = "/";
     }).catch((error) => {
       err = true;
+      errVal = "알맞지 않은 정보입니다.";
       setTimeout(() => {
         err = false;
       }, 5000);
@@ -41,7 +43,11 @@
     await signInWithRedirect(auth, provider).then(() => {
       window.location.reload();
     }).catch((err) => {
-      console.log(err);
+      err = true;
+      errVal = err;
+      setTimeout(() => {
+        err = false;
+      }, 5000);
     });
   }
 
@@ -59,7 +65,7 @@
   </h1>
 
   {#if err}
-    <ErrorTab content="알맞지 않은 정보입니다." title="로그인 오류"/>
+    <ErrorTab content={errVal} title="로그인 오류"/>
   {/if}
   <form on:submit|preventDefault={onSubmit}>
     <div class="wrap">
