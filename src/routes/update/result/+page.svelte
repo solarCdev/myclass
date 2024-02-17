@@ -38,7 +38,7 @@
       user?.grade ? String(user.grade) : "1",
       user?.ban ? String(user.ban) : "1"
     )
-    await deleteDoc(userClass);
+    await updateDoc(userClass, {[user?.name ? user.name : ""] : undefined});
 
     const newUserClass = doc(db, "school",
       school,
@@ -46,9 +46,9 @@
       String(ban)
     );
     if (!((await getDoc(newUserClass)).data()))
-      await setDoc(newUserClass, {[user?.name ? user?.name : ""] : auth.currentUser?.uid})
+      await setDoc(newUserClass, {[user?.name ? user?.name : ""] : {uid: auth.currentUser?.uid}})
     else
-      await updateDoc(newUserClass, {[user?.name ? user?.name : ""] : auth.currentUser?.uid});
+      await updateDoc(newUserClass, {[user?.name ? user?.name : ""] : {uid: auth.currentUser?.uid}});
     
     
     const userDoc = doc(db, "user", auth.currentUser?.uid ? auth.currentUser?.uid : "");
