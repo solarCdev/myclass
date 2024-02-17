@@ -64,6 +64,10 @@
         }, 5000);
       })
 
+      if (!signUpResult?.user) {
+        return;
+      }
+
       let flow = true;
 
       const res = signUpResult?.user ? signUpResult.user : {uid: "null"};

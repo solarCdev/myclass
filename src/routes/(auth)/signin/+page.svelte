@@ -2,7 +2,7 @@
 	import ErrorTab from './../../../lib/components/errorTab.svelte';
 	import { goto } from '$app/navigation';
 	import { auth } from "$lib/fbase.client";
-	import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect, type AuthProvider } from "firebase/auth";
+	import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect, type AuthProvider, signInWithCredential } from "firebase/auth";
 	import { createEventDispatcher, onMount } from "svelte";
   import google from "$lib/assets/google.svg";
 
