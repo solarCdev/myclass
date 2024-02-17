@@ -7,12 +7,18 @@
   import instargram from "$lib/assets/instargram.svg";
   import twitter from "$lib/assets/twitter.svg";
   import call from "$lib/assets/call.svg";
+	import { goto } from '$app/navigation';
 
   export let data: {uid: string};
   let user: User | null | undefined;
   onMount(async () => {
     user = await useUser(data.uid);
+    if (!user?.name){
+      goto("/");
+    }
   })
+
+
   
 </script>
 

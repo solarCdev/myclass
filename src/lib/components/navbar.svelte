@@ -25,7 +25,7 @@
 
   <a href="/">MYCLASS</a>
   <div class="back-btn-wrap">
-    {#if auth.currentUser?.uid}
+    {#if auth.currentUser?.uid && user?.name}
       <a href={"/profile/" + auth.currentUser?.uid}>
         <div class="profile-wrap">
           {user?.emoji}
@@ -42,13 +42,6 @@
     justify-content: space-between;
     border-bottom: solid 1px var(--stroke);
     padding: 12px;
-  }
-
-  button {
-    width: 44px;
-    height: 44px;
-    background-color: white;
-    color: var(--secondary);
   }
   .profile-wrap{
     display: flex;

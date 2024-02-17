@@ -45,7 +45,7 @@
       String(grade),
       String(ban)
     );
-    if (!(await getDoc(newUserClass)).data())
+    if (!((await getDoc(newUserClass)).data()))
       await setDoc(newUserClass, {[user?.name ? user?.name : ""] : auth.currentUser?.uid})
     else
       await updateDoc(newUserClass, {[user?.name ? user?.name : ""] : auth.currentUser?.uid});

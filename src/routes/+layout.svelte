@@ -15,6 +15,9 @@
   let userInfo: User | undefined | null;
 
   session.subscribe((v) => {
+    // if (!v?.user){
+    //   goto("/update/result");
+    // }
     userInfo = v?.user;
   })
   onMount(async () => {
@@ -25,12 +28,11 @@
 
     const user = auth?.currentUser;
 
+
     const loggedIn = !!user;
 
-    if (!loggedIn) {
-      goto("/signin");
-    }
-    session.update((cur): SessionState => {
+
+    await session.update((cur): SessionState => {
       loading = false;
       return{
         ...cur,
@@ -39,6 +41,12 @@
         }
       }
     })
+    if (!loggedIn) {
+      goto("/signin");
+    }
+    else if (!userInfo?.name) {
+      goto("/sns");
+    }
   })
 </script>
 

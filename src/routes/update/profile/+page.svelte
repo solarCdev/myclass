@@ -92,7 +92,6 @@
           cols="30"
           rows="10"
           placeholder="자기소개를 해주세요"
-          required
           style="resize:none;"
           bind:value={introduce}
         ></textarea>
