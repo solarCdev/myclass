@@ -29,7 +29,6 @@
   })
 
   const onAddClick = async () => {
-    console.log(info);
     if (step === 1) {
       if (info.password !== info.passwordRe) {
         err = true;
@@ -64,6 +63,9 @@
           err = false;
         }, 5000);
       })
+
+      let flow = true;
+
       const res = signUpResult?.user ? signUpResult.user : {uid: "null"};
       const userRef = doc(db, "user", res.uid);
       await setDoc(userRef, {
@@ -80,11 +82,28 @@
         setTimeout(() => {
           err = false;
         }, 5000);
+        flow = false;
       })
 
-      await setDoc(doc(db, "school", info.school, String(info.grade), String(info.ban)),
-        { [info.name]: { uid: res.uid } }
-      ).catch();
+      if (!flow){
+        return;
+      }
+
+
+      const userBanRef = doc(db, "school", info.school, String(info.grade), String(info.ban));
+      const data = await getDoc(userBanRef);
+      console.log(data.data());
+      if (data.data()){
+        await updateDoc(userBanRef, 
+          {[info.name] : {uid: res.uid}}
+        ).catch();
+      }
+      else {
+        await setDoc(userBanRef,
+          { [info.name]: { uid: res.uid } }
+        ).catch();
+      }
+
       newUid = res.uid;
     }
     step++;

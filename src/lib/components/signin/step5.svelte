@@ -15,7 +15,7 @@
     바로 시작해도 좋아요!
   </h1>
   <div>
-    <a href={"/profile/" + uid + "/edit"} class="wrap">
+    <a href={"/update/profile"} class="wrap">
       <button>프로필을 꾸미러 갈래요 ⭐</button>
     </a>
     
