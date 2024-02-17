@@ -6,13 +6,11 @@
   let schoolQuery = "";
   let school = "";
   
-  const onChange = () => {
-    signUpInfo.update((cur: SignUpInfo) => ({
+  $: signUpInfo.update((cur: SignUpInfo) => ({
         ...cur,
         school: school,
       })
     )
-  }
   const getSchool = useSchool();
   const onClick = () => {
     getSchool(schoolQuery).then((res) => {
@@ -40,7 +38,7 @@
 
   </div>
 
-  <select size="5" bind:value={school} on:change={onChange} required>
+  <select size="5" bind:value={school} required>
     {#if schoolList.length !== 0}
       {#each schoolList as school}
         <option value={school.name + ":" + school.code} >

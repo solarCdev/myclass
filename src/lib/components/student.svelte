@@ -1,13 +1,21 @@
 <script lang="ts">
   export let name: string;
-  export let uid: string;
+  export let uid: string | {uid: string};
 </script>
 
-<a href={uid !== "" ? "/profile/" + uid : ""}>
-  <div>
-    <span>{name}</span>
-  </div>
-</a>
+{#if typeof uid !== "string" && uid?.uid}
+  <a href={uid.uid !== "" ? "/profile/" + uid.uid : ""}>
+    <div>
+      <span>{name}</span>
+    </div>
+  </a>
+{:else}
+  <a href={uid !== "" ? "/profile/" + uid : ""}>
+    <div>
+      <span>{name}</span>
+    </div>
+  </a>
+{/if}
 
 <style>
   div {

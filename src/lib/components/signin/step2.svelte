@@ -2,16 +2,15 @@
 	import { signUpInfo, type SignUpInfo } from "$lib/stores";
   
   let name = "";
-  $: gender = "male";
-  const onChange = () => {
-    
-    signUpInfo.update((cur: SignUpInfo) => ({
+  let gender = "male";
+  $: signUpInfo.update((cur: SignUpInfo) => {
+      return {
         ...cur,
         name: name,
         gender: gender,
-      })
-    )
-  }
+      }
+    }
+  )
   signUpInfo.subscribe((v) => {
     name = v?.name;
     gender = v?.gender;
@@ -31,7 +30,6 @@
       <label for="name">본명</label>
       <input 
         type="text" 
-        on:input={onChange} 
         bind:value={name} 
         id="name" 
         placeholder="반드시 본명을 사용해주세요">
@@ -42,7 +40,6 @@
         <label for="male" class={gender === "male" ? "m-sel gender-label" : "m-not-sel gender-label"}>
         <input
           type="radio"
-          on:change={onChange}
           bind:group={gender}
           value="male" 
           id="male" 
@@ -54,7 +51,6 @@
 
         <label for="female" class={gender === "female" ? "f-sel gender-label" : "f-not-sel gender-label"}>
         <input type="radio" 
-          on:change={onChange} 
           bind:group={gender} 
           value="female" 
           id="female" 

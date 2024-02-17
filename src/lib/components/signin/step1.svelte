@@ -4,15 +4,13 @@
   let email = "";
   let password = "";
   let passwordRe = "";
-  const onChange = () => {
-    signUpInfo.update((cur: SignUpInfo) => ({
+  $: signUpInfo.update((cur: SignUpInfo) => ({
         ...cur,
         email: email,
         password: password,
         passwordRe: passwordRe
       })
     )
-  }
   signUpInfo.subscribe((v) => {
     email = v?.email;
     password = v?.password;
@@ -36,7 +34,6 @@
         id="email"
         required
         bind:value={email}
-        on:input={onChange}
       >
     </div>
     <div class="wrap">
@@ -47,7 +44,6 @@
         id="password"
         required
         bind:value={password}
-        on:input={onChange}
       >
     </div>
     <div class="wrap">
@@ -58,7 +54,6 @@
         id="password-re"
         required
         bind:value={passwordRe}
-        on:input={onChange}
       >
     </div>
   </form>

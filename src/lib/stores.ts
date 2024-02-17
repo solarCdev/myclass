@@ -16,7 +16,7 @@ export let signUpInfo = writable<SignUpInfo>({
 	password: '',
 	passwordRe: '',
 	name: '',
-	gender: '',
+	gender: 'male',
 	school: '',
 	grade: undefined,
 	ban: undefined

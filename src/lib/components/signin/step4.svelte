@@ -4,14 +4,12 @@
   let grade: number | undefined;
   let ban: number | undefined;
 
-  const onChange = () => {
-    signUpInfo.update((cur: SignUpInfo) => ({
+  $: signUpInfo.update((cur: SignUpInfo) => ({
         ...cur,
         grade: grade,
         ban: ban,
       })
     )
-  }
   signUpInfo.subscribe((v) => {
     grade = v?.grade;
     ban = v?.ban;
@@ -35,7 +33,6 @@
         id="grade"
         placeholder="학년을 입력해주세요."
         bind:value={grade}
-        on:input={onChange}
         >
     </div>
     <div class="wrap">
@@ -45,7 +42,6 @@
         id="ban"
         placeholder="반을 입력해주세요. (숫자로 입력, ex: 가람반 > 1반)"
         bind:value={ban}
-        on:input={onChange}
         >
     </div>
   </form>

@@ -29,6 +29,7 @@
   })
 
   const onAddClick = async () => {
+    console.log(info);
     if (step === 1) {
       if (info.password !== info.passwordRe) {
         err = true;
@@ -56,7 +57,7 @@
         grade: Number(info.grade),
         name: info.name,
         school: info.school,
-        gender: info.gender === "남성" ? "male" : "female",
+        gender: info.gender,
         emoji: "👤"
       })
       .catch((error) => {
