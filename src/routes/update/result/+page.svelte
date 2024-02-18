@@ -97,7 +97,7 @@
         min="1"
         max="6"
         required
-        placeholder="학년을 입력해주세요."
+        placeholder="학년을 입력해주세요. (숫자만 입력)"
         bind:value={grade}
         >
     </div>
@@ -107,7 +107,7 @@
         type="number"
         id="ban"
         required
-        placeholder="반을 입력해주세요. (숫자로 입력, ex: 가람반 > 1반)"
+        placeholder="반을 입력해주세요. (숫자만 입력, 가람 > 1)"
         bind:value={ban}
         >
     </div>
