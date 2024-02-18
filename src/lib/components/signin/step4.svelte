@@ -29,6 +29,8 @@
     <div class="wrap">
       <label for="grade">학년</label>
       <input
+        min="1"
+        max="6"
         type="number"
         id="grade"
         placeholder="학년을 입력해주세요."

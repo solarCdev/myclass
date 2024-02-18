@@ -94,6 +94,8 @@
       <input
         type="number"
         id="grade"
+        min="1"
+        max="6"
         required
         placeholder="학년을 입력해주세요."
         bind:value={grade}
