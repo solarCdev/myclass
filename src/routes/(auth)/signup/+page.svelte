@@ -55,6 +55,7 @@
         setTimeout(() => {
           err = false;
         }, 5000);
+        return;
       }
       const signUpResult = await createUserWithEmailAndPassword(auth, info.email, info.password).catch((error) =>{
         err = true;
