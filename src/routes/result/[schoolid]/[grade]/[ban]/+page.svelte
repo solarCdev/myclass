@@ -26,8 +26,8 @@
 		}
 		let idx = 0;
 		for (const [key, value] of Object.entries(res)){
-			console.log(value);
-			result[idx] = {name: key, uid: value};
+			if (value?.uid !== null)
+				result[idx] = {name: key, uid: value};
 			idx++;
 		}
 		console.log(result);

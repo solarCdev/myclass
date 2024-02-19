@@ -27,7 +27,8 @@
 		const res = await useSearch(String(user?.school), String(user?.grade), String(user?.ban));
 		
 		for (const [key, value] of Object.entries(res)){
-			result = [...result, {name: key, uid: value}]
+      if (value?.uid !== null)
+  			result = [...result, {name: key, uid: value}]
 		}
 		isLoading = false;
 	})
