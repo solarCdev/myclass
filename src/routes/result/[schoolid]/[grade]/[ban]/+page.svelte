@@ -26,9 +26,11 @@
 		}
 		let idx = 0;
 		for (const [key, value] of Object.entries(res)){
-			if (value?.uid !== null)
+			console.log(key, value);
+			if (value !== null){
 				result[idx] = {name: key, uid: value};
-			idx++;
+				idx++;
+			}
 		}
 		console.log(result);
 		isLoading = false;
